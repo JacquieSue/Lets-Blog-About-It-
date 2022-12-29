@@ -15,7 +15,7 @@ Blog.init(
       type: DataTypes.STRING,
       allowNul: false,
     },
-    log: {
+    content: {
       type: DataTypes.STRING,
       allowNull: false,
     },
