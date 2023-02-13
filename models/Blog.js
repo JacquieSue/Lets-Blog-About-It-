@@ -21,7 +21,7 @@ Blog.init(
     },
     date_created: {
       type: DataTypes.DATE,
-      allowNul: false,
+      allowNull: false,
       defaultValue: DataTypes.NOW,
     },
     user_id: {

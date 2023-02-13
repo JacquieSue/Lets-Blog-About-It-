@@ -1,4 +1,32 @@
 header {
 background-color: black;
-color: rgb(222, 242, 235);
+color: rgb(201, 237, 225);
 }
+
+a {
+    color: rgb(201, 237, 225);
+}
+
+body {
+    /* margin: 8px solid white; */
+    background-color: rgb(201, 237, 225);
+}
+
+div .data {
+    display:block;
+    border: 2px solid black;
+    margin: 0;
+    background-color: rgb(201, 237, 225);
+    color: black;
+}
+
+p {
+    display:block;
+    border: 2px solid black;
+    margin: 0;
+    background-color: black;
+    color: rgb(201, 237, 225);
+}
+
+
+

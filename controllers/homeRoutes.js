@@ -1,10 +1,11 @@
 const router = require("express").Router();
 const { Blog, User } = require("../models");
 const withAuth = require("../utils/auth");
+// We do not need to pass the logged in trait because logged out users can view the homepage, just not a dashboard
 
 router.get("/", async (req, res) => {
   try {
-    const blogData = await Blog.finAll({
+    const blogData = await Blog.findAll({
       include: [
         {
           model: User,
@@ -16,8 +17,35 @@ router.get("/", async (req, res) => {
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
     res.render("homepage", {
+      layout: 'main',
       blogs,
-      logged_in: req.session.logged_in,
+      // logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// replicate the route above, but run find where id = req.params.id
+router.get("/blog/:id", async (req, res) => {
+  try {
+    const blogData = await Blog.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["name"],
+        },
+        //also include comment model
+      ],
+    });
+
+    const blog = blogData.get({ plain: true });
+    // console.log(blog);
+
+    res.render("single-post", {
+      layout: 'main',
+      blog,
+      // logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);

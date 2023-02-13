@@ -10,4 +10,8 @@ Blog.belongsTo(User,  {
     foreignKey: 'user_id'
 });
 
+//comments belongs to user
+
+//blog has many cmments
+
 module.exports = { User, Blog };

@@ -14,7 +14,7 @@ router.post('/', withAuth, async (req, res) => {
         res.status(400).json(err);
     }
 });
-
+// update route is very similar to delete route except you need to pass req.body
 router.delete('/:id', withAuth, async (req, res) => {
     try {
         const blogData = await Blog.destroy({
