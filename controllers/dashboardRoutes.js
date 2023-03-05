@@ -2,6 +2,9 @@
 // Create blog
 // View their blogs (base route of the dashboard)
 // pass loggedIn value so logged out users cant access this page
+const router = require('express').Router();
+const 
+
 router.get('/', withAuth, async (req, res) => {
     try {
       // Find the logged in user based on the session ID
@@ -15,6 +18,8 @@ router.get('/', withAuth, async (req, res) => {
       res.render('profile', {
         ...user,
         logged_in: true
+              // logged_in: req.session.logged_in,
+
       });
     } catch (err) {
       res.status(500).json(err);

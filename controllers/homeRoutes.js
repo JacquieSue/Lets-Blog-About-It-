@@ -19,7 +19,6 @@ router.get("/", async (req, res) => {
     res.render("homepage", {
       layout: 'main',
       blogs,
-      // logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -36,6 +35,10 @@ router.get("/blog/:id", async (req, res) => {
           attributes: ["name"],
         },
         //also include comment model
+        {
+          model: Comment,
+          attributes: ['comment'],
+        }
       ],
     });
 
