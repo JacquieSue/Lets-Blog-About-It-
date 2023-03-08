@@ -15,9 +15,9 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 // update route is very similar to delete route except you need to pass req.body
-router.update('/:id', withAuth, async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
     try {
-        const blogData = await Blog.update({
+        const blogData = await Blog.put({
             where: {
                 ...req.body,
                 user_id: req.session.user_id,

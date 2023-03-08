@@ -95,5 +95,7 @@ Jacquelyn Pulliam
 
 [GitHub](#JacquieSue@github.com)
 
+[Contact Me](jspulliam87@yahoo.com)
+
 ## License
 MIT License
